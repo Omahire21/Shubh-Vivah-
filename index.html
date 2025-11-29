@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shubh Vivah - Wedding Card Maker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts for Traditional Look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Great+Vibes&family=Noto+Serif+Devanagari:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Razorpay Checkout Script -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+    <style>
+      body {
+        font-family: 'Poppins', sans-serif;
+      }
+      .font-traditional {
+        font-family: 'Cinzel', serif;
+      }
+      .font-script {
+        font-family: 'Great Vibes', cursive;
+      }
+      .font-hindi {
+        font-family: 'Noto Serif Devanagari', serif;
+      }
+      
+      /* Utility to hide scrollbar for Chrome, Safari and Opera */
+      .no-scrollbar::-webkit-scrollbar {
+          display: none;
+      }
+      /* Utility to hide scrollbar for IE, Edge and Firefox */
+      .no-scrollbar {
+          -ms-overflow-style: none;  /* IE and Edge */
+          scrollbar-width: none;  /* Firefox */
+      }
+
+      @media print {
+        @page {
+          margin: 0;
+          size: auto;
+        }
+        
+        /* Reset constraints that might hide content */
+        html, body {
+          width: 100%;
+          height: 100%;
+          margin: 0 !important;
+          padding: 0 !important;
+          overflow: visible !important;
+          font-size: 16px !important; /* Lock font size */
+        }
+
+        /* Hide everything by default */
+        body * {
+          visibility: hidden;
+        }
+
+        /* Show only the card and its children */
+        #wedding-card-preview, #wedding-card-preview * {
+          visibility: visible !important;
+        }
+
+        /* Position the card specifically for print */
+        #wedding-card-preview {
+          position: fixed;
+          left: 50%;
+          top: 20px;
+          /* Scale 1.25 fits 530px card into A4 width (~794px) with margins */
+          transform: translateX(-50%) scale(1.25); 
+          transform-origin: top center;
+          margin: 0 !important;
+          padding: 0 !important;
+          box-shadow: none !important;
+          border: none !important;
+          z-index: 2147483647; /* Ensure it's on top */
+          /* Do NOT force background-color: white here, it breaks dark themes! */
+          width: 530px !important;
+        }
+        
+        /* Ensure background colors and graphics print exactly as seen */
+        * {
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
+          color-adjust: exact !important;
+        }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "html2canvas": "https://aistudiocdn.com/html2canvas@^1.4.1",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+    "jspdf": "https://aistudiocdn.com/jspdf@^2.5.1"
+  }
+}
+</script>
+</head>
+  <body class="bg-gray-50 text-gray-800">
+    <div id="root"></div>
+  </body>
+</html>
